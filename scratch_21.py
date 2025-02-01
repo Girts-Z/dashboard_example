@@ -9,7 +9,7 @@ st.set_page_config(layout="wide", page_title="Skolu datu panelis")
 # ---------------------------------------
 # Ielādējam datus no Excel faila
 # ---------------------------------------
-excel_file = r"C:\Users\girts\Downloads\school_dashboard_data2.xlsx"
+excel_file = r"school_dashboard_data2.xlsx"
 xl = pd.ExcelFile(excel_file)
 
 schools_df = xl.parse("Schools")
