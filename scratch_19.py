@@ -70,6 +70,7 @@ df_sorted = df.sort_values(by=selected_criterion, ascending=False)
 
 # Compute the average for the selected criterion
 avg_value = df[selected_criterion].mean()
+st.write(f"Zemāk uzzīmēta stabiņu diagramma izvēlētajam kritērijam, kas saranžē pašvaldības pēc kopsummas. Ar sarkanu raustītu līniju attēlots vidējais rezultāts, vertikālā ass iet līdz maksimāli iespējamajam rezultātam.")
 st.write(f"Vidējais rezultāts šajā kritērijā: {avg_value:.2f}")
 
 # Create an Altair bar chart for the selected criterion with fixed width.
@@ -80,11 +81,11 @@ bars = alt.Chart(df_sorted).mark_bar().encode(
                 labelAngle=-45,
                 labelOverlap=False,
                 labelFontSize=10,   # smaller font to help fit more labels
-                title="Municipality"
+                title="Pašvaldība"
             )),
     y=alt.Y(f'{selected_criterion}:Q',
             scale=alt.Scale(domain=[0, y_max_values[selected_criterion]]),
-            title="Score"),
+            title="Rezultāts"),
     tooltip=['Pašvaldība', f'{selected_criterion}:Q']
 ).properties(
     title=f"Pašvaldības sakārtotas pēc: {selected_criterion}",
